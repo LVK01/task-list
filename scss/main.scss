@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$dark: #202020;
+$accent: #4dcdff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: $dark;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.container {
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.title {
+  margin-top: 50px;
+  color: $accent;
+  max-width: 300px;
+  width: 100%;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+}
+
+.title_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  padding: 100px 0;
+  gap: 40px;
+}
+.form_item {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.form_input {
+  height: 70px;
+  font-weight: 300;
+  color: white;
+  font-size: 25px;
+  padding: 20px 30px;
+  background: transparent;
+  outline: none;
+  border: 2px solid $accent;
+  width: 100%;
+
+  border-radius: 20px;
+
+  &:focus + .form_text,
+  &:valid + .form_text {
+    top: -17px;
+    left: 24px;
+    padding: 0 10px;
+    background: $dark;
+  }
+}
+.form_text {
+  transition: top 0.2s ease-in-out, left 0.2s ease-in-out,
+    padding 0.2s ease-in-out, background 0.2s ease;
+  cursor: text;
+  position: absolute;
+  top: 20px;
+  left: 34px;
+  font-weight: 300;
+  font-size: 25px;
+}
+.form_btn {
+  min-height: 70px;
+  width: 100%;
+  max-width: 270px;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: $accent;
+  color: $dark;
+}
+.tasks_list {
+  list-style: none;
+  display: block;
+}
+
+.tasks_list_item {
+  // border: 1px solid $accent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba($color: $accent, $alpha: 0.8);
+  gap: 15px;
+}
+.emptyList {
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.tasks_list_item.hiden {
+  display: none;
+}
+.tasks_list_item.done {
+  text-decoration: line-through;
+  box-shadow: 0px 0px 10px rgb(77 255 140 / 80%);
+  color: rgb(77 255 140 / 80%);
+}
+.emptyList_img {
+  max-width: 95px;
+}
+.emptyList_text {
+  font-weight: 500;
+  font-size: 20px;
+}
+.task_title {
+  font-weight: 500;
+  font-size: clamp(17px, 4vw, 20px);
+}
+.task_btn {
+  display: flex;
+  gap: 20px;
+}
+.task_btn_img {
+  pointer-events: none;
+}
+.btn-action {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+  .form_btn {
+    max-width: none;
+  }
+  .tasks_list_item {
+    flex-direction: column;
+  }
+}
